@@ -39,3 +39,45 @@ var uniqueOccurrences = function(arr) {
     return final;
 };
 ```
+
+#### 1237 - 找出给定方程的正整数解 - e - [linl](https://leetcode-cn.com/problems/find-positive-integer-solution-for-a-given-equation/)
+
+```
+// 考虑到时间复杂度的问题，采用双指针法，是的复杂度为O(n)
+/**
+ * // This is the CustomFunction's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * function CustomFunction() {
+ *
+ *     @param {integer, integer} x, y
+ *     @return {integer}
+ *     this.f = function(x, y) {
+ *         ...
+ *     };
+ *
+ * };
+ */
+/**
+ * @param {CustomFunction} customfunction
+ * @param {integer} z
+ * @return {integer[][]}
+ */
+let findSolution = function(customfunction, z) {
+    let res = [];
+    let y = 1000;
+    let x = 1;
+    while (x < 1001 && y >= 1) {
+        let tmp = customfunction.f(x, y);
+        if (tmp < z) {
+            x++;
+        } else if (tmp > z) {
+            y--;
+        } else {
+            res.push([x, y]);
+            y--;
+        }
+    }
+    
+    return res;
+};
+```
