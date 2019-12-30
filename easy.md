@@ -81,3 +81,20 @@ let findSolution = function(customfunction, z) {
     return res;
 };
 ```
+
+#### 1217 - 玩筹码 - e - [linl](https://leetcode-cn.com/problems/play-with-chips/)
+
+```
+/**
+ * @param {number[]} chips
+ * @return {number}
+ * 数组里的值代表筹码的坐标，也就是算奇偶数，哪个少输出哪个的长度
+ */
+var minCostToMoveChips = function(chips) {
+    let odd = [];
+    let even = [];
+    even = chips.filter(e => e % 2 === 0);
+    odd = chips.filter(e => e % 2 !== 0);
+    return even.length > odd.length ? odd.length : even.length;
+};
+```
