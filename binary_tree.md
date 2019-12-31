@@ -29,3 +29,34 @@ let sortedArrayToBST = function(nums) {
     return node;
 };
 ```
+
+#### 965 - 单值二叉树 - e - [link](https://leetcode-cn.com/problems/univalued-binary-tree/)
+```
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * 树的 递归就完事了。。。
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isUnivalTree = function(root) {
+    let val = root.val;
+    let result = true;
+    let fn = (n) => {
+        if(n.val !== val) result = false
+        if(n.left && result) {
+            fn(n.left);
+        }
+        if(n.right && result) {
+            fn(n.right);
+        }
+    }
+    fn(root);
+    return result;
+};
+```
