@@ -12,3 +12,12 @@
 select a.Name as Employee from Employee as a join Employee as b on a.ManagerId = b.Id where a.Salary > b.Salary
 
 ```
+
+### 175 - 组合两个表 - e - [link](https://leetcode-cn.com/problems/combine-two-tables/)
+
+```
+# 考察left join
+# Write your MySQL query statement below
+
+select Person.FirstName, Person.LastName, Address.City, Address.State from Person left join Address on Person.PersonId = Address.PersonId
+```
