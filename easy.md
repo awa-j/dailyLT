@@ -98,3 +98,38 @@ var minCostToMoveChips = function(chips) {
     return even.length > odd.length ? odd.length : even.length;
 };
 ```
+
+#### 762 - 二进制表示中质数个计算置位 - e - [linl](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/)
+
+```
+// ps: 看评论说，可以直接枚举出20内的质数就行了～
+/**
+ * @param {number} L
+ * @param {number} R
+ * @return {number}
+ */
+let judgePrime = (val) => {
+    if (val === 1) {
+        return false;
+    }
+    let flag = true;
+    for( let i = 2 ; i < val ; i++ ){
+        if( val % i === 0 ){
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+};
+let countPrimeSetBits = (L, R) => {
+    let a = L;
+    let res = 0;
+    while(a >= L && a <= R) {
+        let tmp = a.toString(2);
+        let len = tmp.split('').filter(e => +e === 1).length;
+        judgePrime(len) && res++;
+        a++;
+    }
+    return res;
+};
+```
