@@ -1,5 +1,25 @@
 ### 每日一题
 
+#### 1304 - 和为零的N个唯一整数 - e - [链接](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero/)
+
+```
+/**
+ * 如果是偶数就正负对称来
+ * 如果是奇数就多加个0
+ * @param {number} n
+ * @return {number[]}
+ */
+var sumZero = function(n) {
+    let res = [];
+    for (let i = 1; i <= parseInt(n/2); i++) {
+        res.push(i, -i);
+    }
+    n % 2 !== 0 && res.push(0);
+    
+    return res;
+};
+```
+
 #### 1025 - 除数博弈 - e - [链接](https://leetcode-cn.com/problems/divisor-game/)
 ```
 /**
