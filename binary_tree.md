@@ -1,5 +1,37 @@
 ### 二叉树
 
+#### 226. 翻转二叉树 - e - [link](https://leetcode-cn.com/problems/invert-binary-tree/)
+
+```
+/**
+ * 递归就完事了，但是别忘了极端情况的兼容，比如输入[],别问我为什么知道。。。
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function(root) {
+    if (root === null || (root.left === null && root.right === null)) {
+        return root;
+    }
+    let temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+    if (root.left !== null) {
+        invertTree(root.left);
+    }
+    if (root.right !== null) {
+        invertTree(root.right);
+    }
+    return root;
+};
+```
+
 #### 108 - 将有序数组转换为二叉搜索树 - e - [link](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)
 ```
 
