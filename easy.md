@@ -1,5 +1,47 @@
 ### 每日一题
 
+#### 1370. 上升下降字符串 -[链接](https://leetcode-cn.com/problems/increasing-decreasing-string/)
+```
+/**
+ * 反复颠倒排序
+ * @param {string} s
+ * @return {string}
+ */
+var sortString = function(s) {
+    let tmp = s.split('');
+    let res = [];
+    tmp = tmp.sort((a, b) => a.charCodeAt() - b.charCodeAt()); // 排序
+    let fn = (arr, flag) => {
+        if (!tmp.length) {
+            return;
+        }
+        let indexNums = [];
+        let removeSame = tmp.filter((item, index) => {
+            if (tmp.indexOf(item) === index) {
+                indexNums.push(index);
+            }
+            return tmp.indexOf(item) === index;
+        });
+        res.push(...removeSame);
+        indexNums.sort((a, b) => b - a).forEach((e) => {
+            tmp.splice(e, 1);
+        })
+        console.log(indexNums);
+        console.log(tmp);
+        if (flag === 1) {
+            tmp.sort((a, b) => b.charCodeAt() - a.charCodeAt());
+            fn(tmp, 2);
+        } else {
+            tmp.sort((a, b) => a.charCodeAt() - b.charCodeAt());
+            fn(tmp, 1);
+        }
+    }
+    fn(tmp, 1);
+    
+    return res.join('');
+};
+```
+
 #### 832. 翻转图像 - [链接](https://leetcode-cn.com/problems/flipping-an-image/)
 ```
 /**
