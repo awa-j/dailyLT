@@ -1,6 +1,32 @@
 ### 每日一题
 
-#### 1304 - 和为零的N个唯一整数 - e - [链接](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero/)
+#### 832. 翻转图像 - [链接](https://leetcode-cn.com/problems/flipping-an-image/)
+```
+/**
+ * @param {number[][]} A
+ * @return {number[][]}
+ */
+var flipAndInvertImage = function(A) {
+    let temp = [];
+    let res = [];
+    let len = A.length;
+    A.forEach((e) => {
+        temp.push(e.reverse());
+    })
+    temp.forEach((e) => {
+        let empty = [];
+        e.forEach((i) => {
+            empty.push(i^1);
+        })
+        res.push(empty);
+    })
+    
+    return res;
+};
+```
+
+
+#### 1304 - 和为零的N个唯一整数 - [链接](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero/)
 
 ```
 /**
@@ -20,7 +46,7 @@ var sumZero = function(n) {
 };
 ```
 
-#### 1025 - 除数博弈 - e - [链接](https://leetcode-cn.com/problems/divisor-game/)
+#### 1025 - 除数博弈 - [链接](https://leetcode-cn.com/problems/divisor-game/)
 ```
 /**
  * 多带几个数字进去试试如果数字是奇数，
@@ -35,7 +61,7 @@ var divisorGame = function(N) {
     return N % 2 === 0;
 };
 ```
-#### 1207 - 独一无二的出现次数 - e - [linl](https://leetcode-cn.com/problems/unique-number-of-occurrences/submissions/)
+#### 1207 - 独一无二的出现次数 - [linl](https://leetcode-cn.com/problems/unique-number-of-occurrences/submissions/)
 
 ```
 /**
@@ -60,7 +86,7 @@ var uniqueOccurrences = function(arr) {
 };
 ```
 
-#### 1237 - 找出给定方程的正整数解 - e - [linl](https://leetcode-cn.com/problems/find-positive-integer-solution-for-a-given-equation/)
+#### 1237 - 找出给定方程的正整数解 - [linl](https://leetcode-cn.com/problems/find-positive-integer-solution-for-a-given-equation/)
 
 ```
 // 考虑到时间复杂度的问题，采用双指针法，是的复杂度为O(n)
@@ -102,7 +128,7 @@ let findSolution = function(customfunction, z) {
 };
 ```
 
-#### 1217 - 玩筹码 - e - [linl](https://leetcode-cn.com/problems/play-with-chips/)
+#### 1217 - 玩筹码 - [linl](https://leetcode-cn.com/problems/play-with-chips/)
 
 ```
 /**
@@ -119,7 +145,7 @@ var minCostToMoveChips = function(chips) {
 };
 ```
 
-#### 762 - 二进制表示中质数个计算置位 - e - [linl](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/)
+#### 762 - 二进制表示中质数个计算置位 - [linl](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/)
 
 ```
 // ps: 看评论说，可以直接枚举出20内的质数就行了～
